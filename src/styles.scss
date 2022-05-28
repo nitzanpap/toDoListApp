@@ -8,7 +8,9 @@ $task-bgc-hover: #e0d4fd;
 $text-color-primary: #444;
 $text-color-secondary: #777;
 $clear-all-btn-bgc: #ff3a61;
-$signature-color: rgb(255, 222, 140);
+$signature-color: #ffde8c;
+$edit-task-btn-bgc: #46bd46;
+$delete-task-btn-bgc: crimson;
 
 // Global use sizes
 $border-radius-default: 10px;
@@ -79,7 +81,7 @@ body {
         font-size: 1.5em;
       }
     }
-    .tasks-container {
+    .all-tasks-container {
       width: 100%;
       @include fcc();
       align-items: start;
@@ -103,6 +105,24 @@ body {
           &:hover {
             cursor: pointer;
             background-color: $task-bgc-hover;
+          }
+          .task-content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .task-btns-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            .edit-task {
+              background-color: $edit-task-btn-bgc;
+            }
+            .delete-task {
+              background-color: $delete-task-btn-bgc;
+            }
           }
         }
       }
