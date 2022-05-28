@@ -2,15 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>To Do App</title>
+    <title>Todo App</title>
     <base href="/" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js"></script>
   </head>
   <body>
-    <div class="container card">
-      <h1>To Do App</h1>
+    <div class="main-container card">
+      <h1>Todo App</h1>
+      <section class="new-todo-section">
+        <div class="new-todo-input-container">
+          <input type="text" id="new-todo-input" placeholder="Add your new todo" />
+        </div>
+        <button class="new-todo-btn">+</button>
+      </section>
+      <section class="tasks-container">
+        <ul class="all-tasks-list">
+          <li class="task-container">task1</li>
+          <li class="task-container">task2</li>
+          <li class="task-container">task3</li>
+          <li class="task-container">task4</li>
+          <li class="task-container">task1</li>
+          <li class="task-container">task2</li>
+          <li class="task-container">task3</li>
+          <li class="task-container">task4</li>
+          <li class="task-container">task1</li>
+          <li class="task-container">task2</li>
+          <li class="task-container">task3</li>
+          <li class="task-container">task4</li>
+        </ul>
+      </section>
+      <section class="task-footer">
+        <p class="pending-tasks-text">You have <span>2</span> pending tasks</p>
+        <button class="clear-all-btn">Clear All</button>
+      </section>
     </div>
   </body>
 </html>
