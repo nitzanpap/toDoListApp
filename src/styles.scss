@@ -1,0 +1,41 @@
+// Color Pallete
+$font-family: Helvetica, sans-serif;
+$primary-color: #444;
+$secondary-color: #6359f7;
+$text-color-primary: #444;
+$text-color-secondary: #777;
+
+// Display flex, center center.
+@mixin fcc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin sizeCoverAll {
+  width: 100%;
+  height: 100%;
+}
+* {
+  font-family: $font-family;
+  color: $text-color-primary;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: $primary-color;
+  @include fcc();
+  flex-flow: column nowrap;
+  .container.card {
+    width: 50%;
+  }
+}
+.card {
+  @include fcc();
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5%;
+}
