@@ -2,8 +2,8 @@
 $font-family: Helvetica, sans-serif;
 $primary-color: #444;
 $secondary-color: #6f65ff;
-$task-bgc: #f3eee2;
-$task-bgc-hover: #edd;
+$task-bgc: #e5effd;
+$task-bgc-hover: #e0d4fd;
 $text-color-primary: #444;
 $text-color-secondary: #777;
 $clear-all-btn-bgc: #ff3a61;
@@ -43,7 +43,7 @@ body {
   background: $primary-color;
   text-align: center;
   .main-container {
-    width: calc(min(50%, 720px));
+    width: calc(min(75%, 1024px));
     height: 80vh;
     @include fcc();
     gap: 20px;
