@@ -1,38 +1,10 @@
-// import { Say } from './shared/say.service';
-// import { Dialog } from './shared/dialog';
-
-// class Module {
-//   say = new Say();
-//   select = 'Dialog';
-
-//   updateSelect(): void {
-//     const select = document.getElementById('select') as HTMLSelectElement;
-//     this.select = select.value;
-//   }
-
-//   updateDisplay(msg: string): void {
-//     const display = document.getElementById('display') as HTMLDivElement;
-//     display.innerText = msg;
-//   }
-
-//   shout(): void {
-//     const input = document.getElementById('msg') as HTMLInputElement;
-//     switch (this.select) {
-//       case 'Alert': this.say.alert(input.value); break;
-//       case 'Console': this.say.console(input.value); break;
-//       case 'UI': this.updateDisplay(input.value); break;
-//       case 'Dialog': dialog.open(input.value); break;
-//     }
-//   }
-// }
-// export const module = new Module();
-// export const dialog = new Dialog();
-
 window.onload = () => {
   mainApp()
 }
 
 function mainApp() {
+  if (isLocalStorageEmpty()) addTemplateTasks()
+  else displayAllTasksFromLocalStorage()
   const inputBox = document.querySelector('#new-task-input') as HTMLInputElement
   const addNewTaskBtn = document.querySelector('.add-new-task-btn') as HTMLButtonElement
   inputBox.addEventListener('keypress', (event) => {
@@ -62,6 +34,17 @@ function clearInputBox() {
 }
 
 function addNewTask(taskDesc: string) {
+  displayTask(taskDesc)
+
+  const taskObj = {
+    desc: taskDesc
+  }
+  addTaskToLocalStorage(taskObj)
+
+  return taskObj
+}
+
+function displayTask(taskDesc: string) {
   const allTasksList = document.querySelector('.all-tasks-list') as HTMLUListElement
 
   const newTaskContainer = createNewHtmlEl('li', 'task-container', '', allTasksList)
@@ -73,13 +56,6 @@ function addNewTask(taskDesc: string) {
   createNewHtmlEl('button', 'edit-task', 'Edit', newTaskBtnsContainer)
 
   createNewHtmlEl('button', 'delete-task', 'Delete', newTaskBtnsContainer)
-
-  const taskObj = {
-    taskIndex: 1,
-    description: taskDesc
-  }
-
-  addTaskToLocalStorage(taskObj)
 }
 
 function createNewHtmlEl(tag: string, className: string, text: string, parentElement: HTMLElement) {
@@ -89,10 +65,6 @@ function createNewHtmlEl(tag: string, className: string, text: string, parentEle
 
   parentElement.appendChild(newHtmlElement)
   return newHtmlElement
-}
-
-function addTaskToLocalStorage(taskObj: object) {
-  localStorage.setItem('1', JSON.stringify(taskObj))
 }
 
 function removeAllTasks() {
@@ -105,6 +77,31 @@ function removeAllTasksGUI() {
   tasksList.replaceChildren()
 }
 
+function displayTaskFromLocalStorage(key: string) {
+  console.log(key);
+  displayTask(JSON.parse(localStorage.getItem(key) as string).desc)
+}
+
 function clearLocalStorage() {
   localStorage.clear()
+}
+
+function addTaskToLocalStorage(taskObj: object) {
+  localStorage.setItem(localStorage.length.toString(), JSON.stringify(taskObj))
+}
+
+function isLocalStorageEmpty() {
+  return localStorage.length === 0
+}
+
+function addTemplateTasks() {
+  addNewTask('Take the dog for a walk')
+  addNewTask('Make lunch')
+}
+
+function displayAllTasksFromLocalStorage() {
+  for (let i = 0; i < localStorage.length; i++) {
+    displayTaskFromLocalStorage(i.toString())
+
+  }
 }
