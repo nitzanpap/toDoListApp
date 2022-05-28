@@ -1,12 +1,14 @@
 // Color Pallete
 $font-family: Helvetica, sans-serif;
 $primary-color: #444;
-$secondary-color: #6f65ff;
+$secondary-color: #fff;
+$add-task-btn-color: #6f65ff;
 $task-bgc: #e5effd;
 $task-bgc-hover: #e0d4fd;
 $text-color-primary: #444;
 $text-color-secondary: #777;
 $clear-all-btn-bgc: #ff3a61;
+$signature-color: rgb(255, 222, 140);
 
 // Global use sizes
 $border-radius-default: 10px;
@@ -111,6 +113,19 @@ body {
       }
     }
   }
+  .signature {
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: end;
+    position: fixed;
+    color: $secondary-color;
+    transition: 0.8s;
+    &:hover {
+      text-shadow: 1px 1px 2px $text-color-primary, 0 0 50px $secondary-color,
+        0 0 2px $secondary-color;
+    }
+  }
 }
 .card {
   background-color: #fff;
@@ -124,7 +139,7 @@ button {
   border-radius: $border-radius-default;
   text-align: center;
   padding: 10px 10px;
-  background-color: $secondary-color;
+  background-color: $add-task-btn-color;
   color: white;
   transition-duration: 0.2s;
   &:hover {
