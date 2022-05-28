@@ -33,7 +33,11 @@ window.onload = () => {
 }
 
 function mainApp() {
-  const addNewTaskBtn = document.querySelector('.add-new-task-btn') as HTMLButtonElement;
+  const inputBox = document.querySelector('#new-task-input') as HTMLInputElement
+  const addNewTaskBtn = document.querySelector('.add-new-task-btn') as HTMLButtonElement
+  inputBox.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') addNewTaskBtn.click()
+  })
   addNewTaskBtn.addEventListener('click', () => {
     const testDesc: string = getNewTaskDesc()
     if (testDesc.length !== 0)
@@ -48,12 +52,12 @@ function mainApp() {
 }
 
 function getNewTaskDesc() {
-  const textInputEl = document.querySelector('#new-task-input') as HTMLInputElement;
+  const textInputEl = document.querySelector('#new-task-input') as HTMLInputElement
   return textInputEl.value
 }
 
 function clearInputBox() {
-  const textInputEl = document.querySelector('#new-task-input') as HTMLInputElement;
+  const textInputEl = document.querySelector('#new-task-input') as HTMLInputElement
   textInputEl.value = ''
 }
 
