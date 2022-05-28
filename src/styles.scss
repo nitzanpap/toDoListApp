@@ -44,11 +44,15 @@ body {
   @include fcc();
   background: $primary-color;
   text-align: center;
-  .main-container {
+  .main-container.card {
     width: calc(min(75%, 1024px));
-    height: 80vh;
-    @include fcc();
+    height: 80%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
     gap: 20px;
+    padding: 2.5%;
     h1 {
       font-size: 1.5em;
     }
@@ -80,8 +84,8 @@ body {
       @include fcc();
       align-items: start;
       height: 80%;
+      overflow-y: auto;
       .all-tasks-list {
-        overflow-y: scroll;
         @include sizeCoverAll();
         display: flex;
         flex-flow: column nowrap;
