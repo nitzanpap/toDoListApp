@@ -56,6 +56,7 @@ var app =
 	        displayAllTasksFromLocalStorage();
 	    const inputBox = document.querySelector('#new-task-input');
 	    const addNewTaskBtn = document.querySelector('.add-new-task-btn');
+	    countActiveTasks();
 	    document.querySelector('main').addEventListener('click', countActiveTasks);
 	    inputBox.addEventListener('keypress', (event) => {
 	        if (event.key === 'Enter')

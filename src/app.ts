@@ -7,6 +7,7 @@ function mainApp() {
   else displayAllTasksFromLocalStorage()
   const inputBox = document.querySelector('#new-task-input') as HTMLInputElement
   const addNewTaskBtn = document.querySelector('.add-new-task-btn') as HTMLButtonElement
+  countActiveTasks()
 
   document.querySelector('main')!.addEventListener('click', countActiveTasks)
 
