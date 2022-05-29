@@ -7,9 +7,11 @@ function mainApp() {
   else displayAllTasksFromLocalStorage()
   const inputBox = document.querySelector('#new-task-input') as HTMLInputElement
   const addNewTaskBtn = document.querySelector('.add-new-task-btn') as HTMLButtonElement
+
   inputBox.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') addNewTaskBtn.click()
   })
+
   addNewTaskBtn.addEventListener('click', () => {
     const testDesc: string = getNewTaskDesc()
     if (testDesc.length !== 0)
@@ -48,14 +50,24 @@ function displayTask(taskDesc: string) {
   const allTasksList = document.querySelector('.all-tasks-list') as HTMLUListElement
 
   const newTaskContainer = createNewHtmlEl('li', 'task-container', '', allTasksList)
+  newTaskContainer.id = (allTasksList.childElementCount - 1).toString()
 
-  createNewHtmlEl('p', 'task-content', taskDesc, newTaskContainer)
+  const newTaskText = createNewHtmlEl('p', 'task-content', taskDesc, newTaskContainer)
 
   const newTaskBtnsContainer = createNewHtmlEl('div', 'task-btns-container', '', newTaskContainer)
 
-  createNewHtmlEl('button', 'edit-task', 'Edit', newTaskBtnsContainer)
+  const newTaskEdit = createNewHtmlEl('button', 'edit-task', 'Edit', newTaskBtnsContainer)
 
-  createNewHtmlEl('button', 'delete-task', 'Delete', newTaskBtnsContainer)
+  const newTaskDelete = createNewHtmlEl('button', 'delete-task', 'Delete', newTaskBtnsContainer)
+
+  newTaskEdit.addEventListener('click', () => {
+    editTask(newTaskText)
+  })
+
+  newTaskDelete.addEventListener('click', () => {
+    deleteTask(newTaskContainer)
+  })
+
 }
 
 function createNewHtmlEl(tag: string, className: string, text: string, parentElement: HTMLElement) {
@@ -77,9 +89,26 @@ function removeAllTasksGUI() {
   tasksList.replaceChildren()
 }
 
+function editTask(taskHtmlEl: HTMLElement) {
+  console.log('In editing function', taskHtmlEl);
+}
+
+
+
+// Local storage functions
+
 function displayTaskFromLocalStorage(key: string) {
-  console.log(key);
   displayTask(JSON.parse(localStorage.getItem(key) as string).desc)
+}
+
+function deleteTask(taskHtmlEl: HTMLElement) {
+  deleteTaskFromLocalStorage(taskHtmlEl.id)
+  taskHtmlEl.remove()
+}
+
+function deleteTaskFromLocalStorage(key: string) {
+  console.log(key)
+  localStorage.removeItem(key)
 }
 
 function clearLocalStorage() {
