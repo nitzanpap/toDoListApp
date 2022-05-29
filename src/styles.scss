@@ -111,10 +111,17 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            text-align: left;
             &.checked {
               text-decoration: line-through;
               opacity: 0.6;
             }
+          }
+          .editing-input-box {
+            @include sizeCoverAll();
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
           }
           .task-btns-container {
             display: flex;

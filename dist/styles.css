@@ -1,0 +1,173 @@
+* {
+  font-family: Helvetica, sans-serif;
+  color: #444;
+  font-size: min(max(1em, 14px), 25px);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+* ul {
+  list-style-type: none;
+}
+
+body {
+  font-size: 2vw;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  background: #444;
+  text-align: center;
+}
+body .main-container.card {
+  width: min(75%, 1024px);
+  height: 80%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 2.5%;
+}
+body .main-container.card h1 {
+  font-size: 1.5em;
+}
+body .main-container.card .new-task-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+body .main-container.card .new-task-section .new-task-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+body .main-container.card .new-task-section .new-task-input-container #new-task-input {
+  width: 100%;
+  min-width: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: #777 1px solid;
+}
+body .main-container.card .new-task-section .add-new-task-btn {
+  width: 50px;
+  height: 100%;
+  padding: 0;
+  font-size: 1.5em;
+}
+body .main-container.card .all-tasks-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  align-items: start;
+  height: 80%;
+  overflow-y: auto;
+}
+body .main-container.card .all-tasks-container .all-tasks-list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+body .main-container.card .all-tasks-container .all-tasks-list .task-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #e5effd;
+  border-radius: 4px;
+  padding: 10px;
+}
+body .main-container.card .all-tasks-container .all-tasks-list .task-container:hover {
+  cursor: pointer;
+  background-color: #e0d4fd;
+}
+body .main-container.card .all-tasks-container .all-tasks-list .task-container .task-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+body .main-container.card .all-tasks-container .all-tasks-list .task-container .task-content.checked {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+body .main-container.card .all-tasks-container .all-tasks-list .task-container .editing-input-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .main-container.card .all-tasks-container .all-tasks-list .task-container .task-btns-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+body .main-container.card .all-tasks-container .all-tasks-list .task-container .task-btns-container .edit-task {
+  background-color: #46bd46;
+}
+body .main-container.card .all-tasks-container .all-tasks-list .task-container .task-btns-container .delete-task {
+  background-color: crimson;
+}
+body .main-container.card .task-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .main-container.card .task-footer .clear-all-btn {
+  background-color: #ff3a61;
+}
+body .signature {
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: end;
+  position: fixed;
+  color: #fff;
+  transition: 0.8s;
+}
+body .signature:hover {
+  text-shadow: 1px 1px 2px #444, 0 0 50px #fff, 0 0 2px #fff;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5%;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 10px;
+  background-color: #6f65ff;
+  color: white;
+  transition-duration: 0.2s;
+}
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+button:active {
+  transform: scale(0.8);
+}

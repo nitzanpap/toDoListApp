@@ -55,7 +55,7 @@ function displayTask(taskObj: any) {
   const newTaskContainer = createNewHtmlEl('li', 'task-container', '', allTasksList)
   newTaskContainer.id = (allTasksList.childElementCount - 1).toString()
 
-  const newTaskText = createNewHtmlEl('p', 'task-content', taskObj.desc, newTaskContainer)
+  createNewHtmlEl('p', 'task-content', taskObj.desc, newTaskContainer)
 
   const newTaskBtnsContainer = createNewHtmlEl('div', 'task-btns-container', '', newTaskContainer)
 
@@ -71,7 +71,7 @@ function displayTask(taskObj: any) {
   })
 
   newTaskEdit.addEventListener('click', () => {
-    editTask(newTaskText)
+    editTask(newTaskContainer)
   })
 
   newTaskDelete.addEventListener('click', () => {
@@ -99,10 +99,18 @@ function removeAllTasksGUI() {
   tasksList.replaceChildren()
 }
 
-function editTask(taskHtmlEl: HTMLElement) {
+function editTask(taskContainer: HTMLElement) {
   // A better fix is neededS
-  toggleCheckTask(taskHtmlEl.parentElement!)
-  console.log('In editing function', taskHtmlEl);
+  toggleCheckTask(taskContainer)
+  console.log('In editing function', taskContainer);
+  // const editingInputBox = document.createElement('input')
+  // editingInputBox.type = 'text'
+  // editingInputBox.placeholder = taskContainer.children[0].textContent as string
+  // editingInputBox.className = 'editing-input-box'
+  // editingInputBox.textContent = taskContainer.children[0].textContent as string
+  // taskContainer.children[0].remove()
+  // taskContainer.prepend(editingInputBox)
+  // taskContainer.children[1].children[0].textContent = 'Save'
 }
 
 function toggleCheckTask(taskContainer: HTMLElement) {
