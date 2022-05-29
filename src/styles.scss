@@ -107,10 +107,14 @@ body {
             background-color: $task-bgc-hover;
           }
           .task-content {
-            width: 100%;
+            @include sizeCoverAll();
             display: flex;
             justify-content: space-between;
             align-items: center;
+            &.checked {
+              text-decoration: line-through;
+              opacity: 0.6;
+            }
           }
           .task-btns-container {
             display: flex;
