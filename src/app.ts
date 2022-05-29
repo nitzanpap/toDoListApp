@@ -8,6 +8,8 @@ function mainApp() {
   const inputBox = document.querySelector('#new-task-input') as HTMLInputElement
   const addNewTaskBtn = document.querySelector('.add-new-task-btn') as HTMLButtonElement
 
+  document.querySelector('main')!.addEventListener('click', countActiveTasks)
+
   inputBox.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') addNewTaskBtn.click()
   })
@@ -106,6 +108,14 @@ function toggleCheckTask(taskContainer: HTMLElement) {
   toggleCheckTaskLocalStorage(taskContainer.id)
 }
 
+function countActiveTasks() {
+  let activeTasksCounter = 0
+  for (let i = 0; i < localStorage.length; i++) {
+    if (!JSON.parse(localStorage.getItem(i.toString()) as string).checked) activeTasksCounter++
+  }
+  document.querySelector('.activeTasksCntr')!.textContent = activeTasksCounter.toString()
+}
+
 // Local storage functions
 
 function toggleCheckTaskLocalStorage(key: string) {
@@ -154,7 +164,6 @@ function displayTaskFromLocalStorage(taskObj: object) {
 
 function displayAllTasksFromLocalStorage() {
   for (let i = 0; i < localStorage.length; i++) {
-    console.log(JSON.parse(localStorage.getItem(i.toString()) as string));
     displayTaskFromLocalStorage(JSON.parse(localStorage.getItem(i.toString()) as string))
 
   }
