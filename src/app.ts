@@ -152,6 +152,7 @@ function addTaskToLocalStorage(taskObj: object) {
 }
 
 function isLocalStorageEmpty() {
+  localStorage.removeItem('randid')
   return localStorage.length === 0
 }
 

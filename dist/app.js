@@ -170,6 +170,7 @@ var app =
 	    localStorage.setItem(localStorage.length.toString(), JSON.stringify(taskObj));
 	}
 	function isLocalStorageEmpty() {
+	    localStorage.removeItem('randid');
 	    return localStorage.length === 0;
 	}
 	function addTemplateTasks() {
