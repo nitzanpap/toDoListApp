@@ -103,12 +103,15 @@ var app =
 	        newTaskContainer.children[0].classList.add('checked');
 	    newTaskContainer.addEventListener('click', () => {
 	        toggleCheckTask(newTaskContainer);
+	        countActiveTasks();
 	    });
 	    newTaskEdit.addEventListener('click', () => {
 	        editTask(newTaskContainer);
+	        countActiveTasks();
 	    });
 	    newTaskDelete.addEventListener('click', () => {
 	        deleteTask(newTaskContainer);
+	        countActiveTasks();
 	    });
 	}
 	function createNewHtmlEl(tag, className, text, parentElement) {

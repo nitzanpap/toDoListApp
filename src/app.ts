@@ -69,14 +69,17 @@ function displayTask(taskObj: any) {
 
   newTaskContainer.addEventListener('click', () => {
     toggleCheckTask(newTaskContainer)
+    countActiveTasks()
   })
 
   newTaskEdit.addEventListener('click', () => {
     editTask(newTaskContainer)
+    countActiveTasks()
   })
 
   newTaskDelete.addEventListener('click', () => {
     deleteTask(newTaskContainer)
+    countActiveTasks()
   })
 
 }
