@@ -100,6 +100,8 @@ function removeAllTasksGUI() {
 }
 
 function editTask(taskHtmlEl: HTMLElement) {
+  // A better fix is neededS
+  toggleCheckTask(taskHtmlEl.parentElement!)
   console.log('In editing function', taskHtmlEl);
 }
 
